@@ -1,0 +1,9 @@
+C:\SRC\ToDoList\ToDoListTest\bin\Debug\ToDoListTest.dll
+C:\SRC\ToDoList\ToDoListTest\bin\Debug\ToDoListTest.pdb
+C:\SRC\ToDoList\ToDoListTest\bin\Debug\DataProcessor.dll
+C:\SRC\ToDoList\ToDoListTest\bin\Debug\ToDoList.exe
+C:\SRC\ToDoList\ToDoListTest\bin\Debug\DataProcessor.pdb
+C:\SRC\ToDoList\ToDoListTest\bin\Debug\ToDoList.pdb
+C:\SRC\ToDoList\ToDoListTest\obj\Debug\ToDoListTest.csprojResolveAssemblyReference.cache
+C:\SRC\ToDoList\ToDoListTest\obj\Debug\ToDoListTest.dll
+C:\SRC\ToDoList\ToDoListTest\obj\Debug\ToDoListTest.pdb

@@ -1,0 +1,7 @@
+C:\SRC\ToDoListUnitTests\ToDoListUnitTests\bin\Debug\ToDoListTest.dll
+C:\SRC\ToDoListUnitTests\ToDoListUnitTests\bin\Debug\ToDoListTest.pdb
+C:\SRC\ToDoListUnitTests\ToDoListUnitTests\bin\Debug\DataProcessor.dll
+C:\SRC\ToDoListUnitTests\ToDoListUnitTests\bin\Debug\DataProcessor.pdb
+C:\SRC\ToDoListUnitTests\ToDoListUnitTests\obj\Debug\ToDoListUnitTests.csprojResolveAssemblyReference.cache
+C:\SRC\ToDoListUnitTests\ToDoListUnitTests\obj\Debug\ToDoListTest.dll
+C:\SRC\ToDoListUnitTests\ToDoListUnitTests\obj\Debug\ToDoListTest.pdb
