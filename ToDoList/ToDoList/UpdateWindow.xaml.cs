@@ -12,24 +12,34 @@ namespace ToDoList
         /// <summary>
         ///Id for assigned ToDo item. Default is random Guid.
         /// </summary>
-        Guid addedId = Guid.NewGuid();
+        private Guid addedId = Guid.NewGuid();
 
         /// <summary>
         /// ToDo item returned by UpdateWindow.
         /// </summary>
-        public ToDo toDo = new ToDo();
+        private ToDo toDo = new ToDo();
+
+        /// <summary>
+        /// Get accessor for toDo.
+        /// </summary>
+        public ToDo UtoDo
+        {
+            get { return toDo; }
+            private set { toDo = value; }
+        }
 
         /// <summary>
         /// Constructor for Edit window
         /// </summary>
         /// <param name="toDo">passed in todo item to be edited</param>
-        public UpdateWindow( FileDataSaver.Update action, ToDo toDo = null)
+        public UpdateWindow( TDList.Update action, ToDo toDo = null)
         {
             InitializeComponent();
             Title = action.ToString();
             if (toDo != null)
             {
-                PopulateEditControls(toDo);
+                this.toDo = toDo;
+                PopulateEditControls();
             }
         }
 
@@ -40,7 +50,7 @@ namespace ToDoList
         /// <param name="e"></param>
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            ToDo addedToDo = new ToDo()
+            toDo = new ToDo()
             {
                 Name = NameBox.Text,
                 Description = DescriptionBox.Text,
@@ -48,8 +58,6 @@ namespace ToDoList
                 Completed = CompleteCheckBox.IsChecked.Value,
                 Id = addedId
             };
-
-            toDo = addedToDo;
 
             Close();
         }
@@ -68,7 +76,7 @@ namespace ToDoList
         /// Fill controls with selected item in the event of Edit window.
         /// </summary>
         /// <param name="toDo">selected item</param>
-        private void PopulateEditControls(ToDo toDo)
+        private void PopulateEditControls()
         {
             NameBox.Text = toDo.Name;
             DescriptionBox.Text = toDo.Description;

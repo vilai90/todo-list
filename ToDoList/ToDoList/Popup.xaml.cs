@@ -12,25 +12,33 @@ namespace ToDoList
        /// <summary>
        /// Confirm if complete or delete should be processed or not.
        /// </summary>
-        public bool Confirm = false;
+        private bool confirm = false;
     
+        /// <summary>
+        /// Get accessor for confirm.
+        /// </summary>
+        public bool Confirm
+        {
+            get { return confirm; }
+            private set { confirm = value; }
+        }
+
         /// <summary>
         /// Constructor for deleting or completing a selected item.
         /// </summary>
         /// <param name="tag">selected item id</param>
         /// <param name="Update">delete or edit enumeration</param>
-        public Popup(FileDataSaver.Update action)
+        public Popup(TDList.Update action)
         {
             InitializeComponent();
             SetControls(action);
-            
         }
 
         /// <summary>
         /// Set warning label and title depending on selected item enumeration.
         /// </summary>
         /// <param name="Update">delete or edit enumeration</param>
-        public void SetControls(FileDataSaver.Update action)
+        public void SetControls(TDList.Update action)
         {
             Title = action.ToString();      
             WarningLabel.Content = "Are you sure you want to " + action.ToString() + " the selected item?";    
@@ -43,7 +51,7 @@ namespace ToDoList
         /// <param name="e"></param>
         private void YesBtn_Click(object sender, RoutedEventArgs e)
         {
-            Confirm = true;
+            confirm = true;
             Close();
         }
 

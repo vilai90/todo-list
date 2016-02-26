@@ -19,16 +19,6 @@ namespace ToDoList
         private TDList MainList = new TDList();
 
         /// <summary>
-        /// ListBoxItem used to represent TaskBox selected item.
-        /// </summary>
-        private ListBoxItem ListBoxItem = new ListBoxItem();
-        
-        /// <summary>
-        /// Id of toDo item to either be completed or deleted.
-        /// </summary>
-        private Guid Id = new Guid();
-
-        /// <summary>
         /// MainWindow constructor.
         /// </summary>
         public MainWindow()
@@ -64,9 +54,9 @@ namespace ToDoList
         /// <param name="e"></param>
         private void NewTaskBtn_Click(object sender, RoutedEventArgs e)
         {
-            UpdateWindow UpdateWindow = new UpdateWindow(FileDataSaver.Update.Add);
+            UpdateWindow UpdateWindow = new UpdateWindow(TDList.Update.Add);
             UpdateWindow.ShowDialog();
-            MainList.Add(UpdateWindow.toDo);
+            MainList.Add(UpdateWindow.UtoDo);
             Refresh();
         }
 
@@ -77,13 +67,13 @@ namespace ToDoList
         /// <param name="e"></param>
         private void DeleteTaskBtn_Click(object sender, RoutedEventArgs e)
         {
-            Popup deletePopup = new Popup(FileDataSaver.Update.Delete);
+            Popup deletePopup = new Popup(TDList.Update.Delete);
             deletePopup.ShowDialog();
             if (deletePopup.Confirm)
             {
-                ListBoxItem = TaskBox.SelectedItem as ListBoxItem;
-                Id = Guid.Parse(ListBoxItem.Tag.ToString());
-                MainList.Delete(Id);
+                ListBoxItem listBoxItem = TaskBox.SelectedItem as ListBoxItem;
+                Guid id = Guid.Parse(listBoxItem.Tag.ToString());
+                MainList.Delete(id);
             }
             Refresh();
         }
@@ -95,13 +85,13 @@ namespace ToDoList
         /// <param name="e"></param>
         private void CompleteTaskBtn_Click(object sender, RoutedEventArgs e)
         {
-            Popup completePopup = new Popup(FileDataSaver.Update.Complete);
+            Popup completePopup = new Popup(TDList.Update.Complete);
             completePopup.ShowDialog();
             if (completePopup.Confirm)
             {
-                ListBoxItem = TaskBox.SelectedItem as ListBoxItem;
-                Id = Guid.Parse(ListBoxItem.Tag.ToString());
-                MainList.Complete(Id);
+                ListBoxItem listBoxItem = TaskBox.SelectedItem as ListBoxItem;
+                Guid id = Guid.Parse(listBoxItem.Tag.ToString());
+                MainList.Complete(id);
             }
             Refresh();
         }
@@ -163,8 +153,8 @@ namespace ToDoList
        /// <param name="e"></param>
        private void item_MouseDoubleClick(object sender, MouseButtonEventArgs e)
        {
-            ListBoxItem = sender as ListBoxItem;
-            string[] contentStr = ListBoxItem.Content.ToString().Split('|');
+            ListBoxItem listBoxItem = sender as ListBoxItem;
+            string[] contentStr = listBoxItem.Content.ToString().Split('|');
             ToDo existingToDo = new ToDo();
 
             //Populate existing to do item with parameters extracted from selected item content
@@ -180,7 +170,7 @@ namespace ToDoList
                 existingToDo.DueDate = DateTime.Parse(contentStr[2].Replace("Due:", ""));
             }
             
-            if (ListBoxItem.Background == Brushes.Green)
+            if (listBoxItem.Background == Brushes.Green)
             {
                 existingToDo.Completed = true;
             }
@@ -188,10 +178,10 @@ namespace ToDoList
             {
                 existingToDo.Completed = false;
             }
-            existingToDo.Id = Guid.Parse(ListBoxItem.Tag.ToString());
-            UpdateWindow editWindow = new UpdateWindow(FileDataSaver.Update.Edit, existingToDo);
+            existingToDo.Id = Guid.Parse(listBoxItem.Tag.ToString());
+            UpdateWindow editWindow = new UpdateWindow(TDList.Update.Edit, existingToDo);
             editWindow.ShowDialog();
-            MainList.Edit(editWindow.toDo);
+            MainList.Edit(editWindow.UtoDo);
             Refresh();
         }
         

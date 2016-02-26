@@ -2,4 +2,3 @@ C:\SRC\ToDoList\DataProcessor\bin\Debug\DataProcessor.dll
 C:\SRC\ToDoList\DataProcessor\bin\Debug\DataProcessor.pdb
 C:\SRC\ToDoList\DataProcessor\obj\Debug\DataProcessor.dll
 C:\SRC\ToDoList\DataProcessor\obj\Debug\DataProcessor.pdb
-C:\SRC\ToDoList\DataProcessor\obj\Debug\DataProcessor.csprojResolveAssemblyReference.cache

@@ -20,11 +20,6 @@ namespace DataProcessor
         private static FileInfo file = new FileInfo(filePath);
 
         /// <summary>
-        /// Update enumerations for item modifications.
-        /// </summary>
-        public enum Update { Add, Edit, Delete, Complete }
-
-        /// <summary>
         /// Read from csv file.
         /// </summary>
         public static Dictionary<Guid, ToDo> ReadFile()
